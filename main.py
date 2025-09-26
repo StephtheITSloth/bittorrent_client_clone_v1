@@ -34,7 +34,9 @@ class ParsingTorrentFile:
         with open(self.torrent_file, 'rb') as f:
             meta_data = f.read()
             data = bencode.loads(meta_data) # data will be binary data
+            print(data)
             for elm in data:
+                print(elm)
                 if b'info' in elm:
                     self.size_of_file = data[elm][b'length']
                     name = data[elm][b'name']
